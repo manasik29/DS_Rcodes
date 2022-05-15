@@ -105,3 +105,45 @@ hist(airquality$Solar.R)
 boxplot(airquality$Solar.R)
 boxplot(airquality[,0:4], main='Multiple Box plots')
 
+
+e_quakes<-datasets::quakes
+#top 10 adn last 10 rows
+head(e_quakes,10)
+tail(e_quakes,10)
+
+#columns
+e_quakes[,c(1,2)]
+df<-e_quakes[,-4]
+df1<-e_quakes[-153,]
+
+summary(e_quakes$mag)
+e_quakes$mag
+summary(e_quakes)
+
+
+plot(e_quakes$depth)
+plot(e_quakes$depth, e_quakes$mag, type='p')
+plot(e_quakes)
+#points & lines
+plot(e_quakes$depth,type='l')
+plot(e_quakes$mag, xlab='Magnitude',
+     ylab='No of Instances', main='Magnitude of quake',
+     col='blue')
+#Horizontal barplot
+barplot(e_quakes$depth, main='Depth of quake', 
+        ylab='Depth', col='blue', horiz=F, axes = T)
+hist(e_quakes$mag)
+hist(e_quakes$mag, main = ' Magnitude of quakes',
+     xlab = 'Magnitude', col= 'blue')
+#Boxplot
+boxplot(e_quakes$mag, main = 'Boxplot')
+boxplot.stats(e_quakes$mag)$out
+#Multiple Boxplot
+boxplot(e_quakes[,(2:3)], main = 'Multiple')
+
+sd(e_quakes$depth)
+var(e_quakes$depth)
+sd(airquality$Ozone, na.rm = T)
+var(airquality$Ozone, na.rm = T)
+skewness(e_quakes$depth)
+kurtosis(e_quakes$depth)
